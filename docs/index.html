@@ -3,99 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus AI OS | The Future of Productivity</title>
-    <link rel="stylesheet" href="style.css">
+    <title>AI Community Hub | Professional Futurism</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-obsidian: #0A0B10;
+            --midnight-navy: #161B22;
+            --electric-indigo: #6366F1;
+            --soft-slate: #94A3B8;
+            --pure-frost: #F8FAFC;
+            --glass-overlay: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(99, 102, 241, 0.2);
+            --glass-bg: rgba(22, 27, 34, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-obsidian);
+            color: var(--pure-frost);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Global Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            background: rgba(10, 11, 16, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 800px;
+            background: var(--midnight-navy);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 0.8rem 1.5rem 0.8rem 3rem;
+            color: var(--pure-frost);
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+        }
+
+        .search-bar:focus {
+            border-color: var(--electric-indigo);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: calc(50% - 400px + 1.2rem);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--soft-slate);
+            pointer-events: none;
+        }
+        
+        /* Adjust search icon for smaller screens */
+        @media (max-width: 850px) {
+            .search-icon { left: 2rem; }
+        }
+
+        .shortcut-hint {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--glass-overlay);
+            border: 1px solid var(--glass-border);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--soft-slate);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .portals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            border-color: var(--electric-indigo);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: var(--pure-frost);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: var(--soft-slate);
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 75% 25%;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .primary-col {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--electric-indigo);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feed-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feed-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-left: 4px solid var(--electric-indigo);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .feed-item:hover {
+            transform: translateX(5px);
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--electric-indigo);
+        }
+
+        .feed-text {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .feed-text span {
+            color: var(--soft-slate);
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        /* Leaderboard */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            background: rgba(10, 11, 16, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .leaderboard-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .rank {
+            font-weight: 600;
+            color: var(--electric-indigo);
+            width: 20px;
+        }
+
+        .user-info {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .score {
+            font-size: 0.85rem;
+            color: var(--soft-slate);
+        }
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--soft-slate);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 4rem;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsiveness */
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portals-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">NEXUS<span>AI</span></div>
-        <nav>
-            <a href="#features">Capabilities</a>
-            <a href="#comparison">Comparison</a>
-            <a href="#testimonials">Testimonials</a>
-        </nav>
-        <a href="#waitlist" class="cta-button">Join Waitlist</a>
+
+    <header>
+        <div class="container">
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-bar" id="toolSearch" placeholder="Search the AI ecosystem...">
+                <span class="shortcut-hint">Cmd + K</span>
+            </div>
+        </div>
     </header>
 
-    <section class="hero" id="waitlist">
-        <div class="hero-content">
-            <h1 class="fade-in">Nexus AI OS: <span class="gradient-text">Redefining Intelligence</span></h1>
-            <p class="fade-in">The most powerful operating system for the AI era. Professional. Scalable. Unstoppable.</p>
-            
-            <form class="waitlist-form fade-in">
-                <input type="email" placeholder="Enter your professional email" required>
-                <button type="submit" class="cta-button">Get Early Access</button>
-            </form>
-
-            <div class="countdown fade-in" id="countdown">
-                <div class="count-item"><span id="days">00</span><label>Days</label></div>
-                <div class="count-item"><span id="hours">00</span><label>Hours</label></div>
-                <div class="count-item"><span id="minutes">00</span><label>Min</label></div>
-                <div class="count-item"><span id="seconds">00</span><label>Sec</label></div>
+    <div class="container">
+        <section class="hero">
+            <h1>AI Community Hub</h1>
+            <div class="portals-grid">
+                <div class="card" style="animation-delay: 0.1s;">
+                    <img src="https://picsum.photos/seed/exploration/800/600" alt="The Curious">
+                    <div class="card-content">
+                        <h3>The Curious</h3>
+                        <p>Explore the frontiers of AI. Perfect for beginners starting their journey.</p>
+                    </div>
+                </div>
+                <div class="card" style="animation-delay: 0.2s;">
+                    <img src="https://picsum.photos/seed/workspace/800/600" alt="The Power User">
+                    <div class="card-content">
+                        <h3>The Power User</h3>
+                        <p>Optimize your workflow. Advanced tools for the builders and architects.</p>
+                    </div>
+                </div>
+                <div class="card" style="animation-delay: 0.3s;">
+                    <img src="https://picsum.photos/seed/executive/800/600" alt="The Leader">
+                    <div class="card-content">
+                        <h3>The Leader</h3>
+                        <p>Strategic insights. Visionary frameworks for AI industry leadership.</p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <div class="main-layout">
+            <div class="primary-col">
+                <section>
+                    <h2>Trending Tools</h2>
+                    <div class="tools-grid" id="toolsGrid">
+                        <div class="card tool-card" data-name="n8n automation workflow">
+                            <img src="https://picsum.photos/seed/automation/800/600" alt="n8n">
+                            <div class="card-content">
+                                <h3>n8n</h3>
+                                <p>The powerful workflow automation tool for technical AI agents.</p>
+                            </div>
+                        </div>
+                        <div class="card tool-card" data-name="hermes communication connectivity">
+                            <img src="https://picsum.photos/seed/communication/800/600" alt="Hermes">
+                            <div class="card-content">
+                                <h3>Hermes</h3>
+                                <p>Next-gen AI connectivity and intelligent communication bridge.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Contribution Feed</h2>
+                    <div class="feed-container">
+                        <div class="feed-item">
+                            <div class="avatar"></div>
+                            <div class="feed-text">
+                                <strong>@nova_ai</strong> shared a high-precision prompt for legal analysis.
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="feed-item">
+                            <div class="avatar" style="background: #B2B2B2"></div>
+                            <div class="feed-text">
+                                <strong>@dev_max</strong> optimized an n8n workflow for lead gen.
+                                <span>5 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="feed-item">
+                            <div class="avatar" style="background: #FBBF24"></div>
+                            <div class="feed-text">
+                                <strong>@strat_queen</strong> published a vision paper on AI governance.
+                                <span>1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <h2>Leaderboard</h2>
+                <ul class="leaderboard-list">
+                    <li class="leaderboard-item">
+                        <span class="rank">1</span>
+                        <div class="avatar"></div>
+                        <div class="user-info"><strong>Alex Rivers</strong></div>
+                        <div class="score">1,240 pts</div>
+                    </li>
+                    <li class="leaderboard-item">
+                        <span class="rank">2</span>
+                        <div class="avatar" style="background: #B2B2B2"></div>
+                        <div class="user-info"><strong>Sarah Chen</strong></div>
+                        <div class="score">980 pts</div>
+                    </li>
+                    <li class="leaderboard-item">
+                        <span class="rank">3</span>
+                        <div class="avatar" style="background: #FBBF24"></div>
+                        <div class="user-info"><strong>Jordan Lee</strong></div>
+                        <div class="score">850 pts</div>
+                    </li>
+                </ul>
+            </aside>
         </div>
-    </section>
+    </div>
 
-    <section class="comparison" id="comparison">
-        <h2 class="section-title fade-in">Manual vs. Nexus AI</h2>
-        <div class="slider-container fade-in">
-            <div class="image-before">
-                <img src="https://picsum.photos/seed/workflow/1200/800" alt="Manual Workflow">
-                <div class="label">Manual Workflow</div>
-            </div>
-            <div class="image-after" id="after-image">
-                <img src="https://picsum.photos/seed/automation/1200/800" alt="AI-Optimized Workflow">
-                <div class="label">Nexus AI OS</div>
-            </div>
-            <input type="range" min="0" max="100" value="50" class="slider" id="slider">
-            <div class="slider-button"></div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AI Community Hub. Designed for the Future.</p>
         </div>
-    </section>
-
-    <section class="features" id="features">
-        <h2 class="section-title fade-in">Core Capabilities</h2>
-        <div class="feature-grid">
-            <div class="glass-card fade-in">
-                <img src="https://picsum.photos/seed/velocity/400/300" alt="Speed">
-                <h3>Extreme Speed</h3>
-                <p>Zero-latency execution. Processing power that keeps pace with your thought process.</p>
-            </div>
-            <div class="glass-card fade-in">
-                <img src="https://picsum.photos/seed/brain/400/300" alt="Intelligence">
-                <h3>Neural Intelligence</h3>
-                <p>Deep integration of LLMs across every system utility. Intelligence is the default.</p>
-            </div>
-            <div class="glass-card fade-in">
-                <img src="https://picsum.photos/seed/growth/400/300" alt="Scale">
-                <h3>Enterprise Scale</h3>
-                <p>Built for the most demanding environments. Scalability without compromise.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials" id="testimonials">
-        <div class="ticker-wrap">
-            <div class="ticker">
-                <div class="glass-card testimonial-card">"The leap in productivity is staggering. Nexus AI OS is simply the new standard." — CTO, Quantum Systems</div>
-                <div class="glass-card testimonial-card">"Finally, an AI OS that feels like a professional tool, not a toy." — Lead Architect, NovaSoft</div>
-                <div class="glass-card testimonial-card">"Unprecedented speed and elegance. It has fundamentally changed our workflow." — CEO, Aegis AI</div>
-                <div class="glass-card testimonial-card">"The most intuitive interface I've ever used for complex automation." — Head of Ops, Zenith</div>
-                <!-- Duplicate for seamless loop -->
-                <div class="glass-card testimonial-card">"The leap in productivity is staggering. Nexus AI OS is simply the new standard." — CTO, Quantum Systems</div>
-                <div class="glass-card testimonial-card">"Finally, an AI OS that feels like a professional tool, not a toy." — Lead Architect, NovaSoft</div>
-                <div class="glass-card testimonial-card">"Unprecedented speed and elegance. It has fundamentally changed our workflow." — CEO, Aegis AI</div>
-                <div class="glass-card testimonial-card">"The most intuitive interface I've ever used for complex automation." — Head of Ops, Zenith</div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>&copy; 2026 Nexus AI OS. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Search filtering logic
+        const searchInput = document.getElementById('toolSearch');
+        const toolCards = document.querySelectorAll('.tool-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            toolCards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                if (name.includes(term)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Cmd + K shortcut
+        window.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+
+        // Sequential entry animation for sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.card, h2');
+            sections.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
 </body>
 </html>
