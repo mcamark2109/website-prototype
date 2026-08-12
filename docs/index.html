@@ -3,100 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Horizon | Immersive Experience</title>
+    <title>Small Breed Vitality | Clinical Nutrition for Small Dogs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header id="main-nav">
-        <div class="logo">APEX HORIZON</div>
-        <nav>
-            <a href="#priority-access" class="cta-button">Apply for Access</a>
-        </nav>
+    <header class="global-header">
+        <div class="container">
+            <div class="logo">Small Breed <span>Vitality</span></div>
+            <nav>
+                <a href="#science">The Science</a>
+                <a href="#comparison">Comparison</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <!-- Section 1: Hero -->
-        <section id="hero" class="section">
-            <div class="video-container">
-                <video autoplay muted loop playsinline class="bg-video">
-                    <source src="https://picsum.photos/seed/cinematic/1920/1080" type="video/mp4">
-                    <!-- Note: picsum is image, but using it as a placeholder. In real world, replace with .mp4 -->
-                </video>
-                <div class="video-overlay"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="gold-text">Transcending the Ordinary</h1>
-                <div class="scroll-indicator">
-                    <span>Scroll to Explore</span>
-                    <div class="line"></div>
+        <!-- Section 1: Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text reveal">
+                    <h1>Clinical Nutrition <br>for Small Breed Longevity</h1>
+                    <p>Advanced veterinary-grade vitality support specifically formulated for the unique metabolic needs of small breed canines.</p>
+                    <a href="#pricing" class="btn btn-primary">Start Vitality Plan</a>
+                </div>
+                <div class="hero-image reveal">
+                    <img src="https://picsum.photos/seed/hero/800/600" alt="Healthy Small Breed Dog">
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: Craftsmanship -->
-        <section id="craftsmanship" class="section reveal">
-            <h2 class="section-title gold-text">Unrivaled Craftsmanship</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item item-1">
-                    <img src="https://picsum.photos/seed/detail/800/600" alt="Detail" loading="lazy">
-                    <div class="parallax-text">Precision Engineering</div>
-                </div>
-                <div class="gallery-item item-2">
-                    <img src="https://picsum.photos/seed/material/800/600" alt="Material" loading="lazy">
-                    <div class="parallax-text">Rare Materials</div>
-                </div>
-                <div class="gallery-item item-3">
-                    <img src="https://picsum.photos/seed/precision/800/600" alt="Precision" loading="lazy">
-                    <div class="parallax-text">Timeless Heritage</div>
+        <!-- Section 2: The Science Infographic -->
+        <section id="science" class="science">
+            <div class="container">
+                <h2 class="section-title reveal">The Science of Vitality</h2>
+                <div class="feature-grid">
+                    <div class="card reveal">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3>Molecular Precision</h3>
+                        <p>Bio-available nutrients engineered for maximum absorption in smaller digestive tracts.</p>
+                        <img src="https://picsum.photos/seed/molecule/800/600" alt="Molecular structure">
+                    </div>
+                    <div class="card reveal">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84 1.41-1.67 2.11-2.5l-2.11-2.5z"/><path d="M12 12l4-4 4 4-4 4-4-4z"/><path d="M12 12l-4-4-4 4 4 4 4-4z"/></svg>
+                        </div>
+                        <h3>Vet-Led Research</h3>
+                        <p>Developed in collaboration with leading veterinary clinics across North America.</p>
+                        <img src="https://picsum.photos/seed/lab/800/600" alt="Laboratory research">
+                    </div>
+                    <div class="card reveal">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3>Nutrient Density</h3>
+                        <p>Optimized caloric ratios to prevent obesity while maintaining high muscle mass.</p>
+                        <img src="https://picsum.photos/seed/nutrient/800/600" alt="Nutrient dense food">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: The Apex Horizon -->
-        <section id="apex-horizon" class="section reveal">
-            <h2 class="section-title gold-text">The Apex Horizon</h2>
-            <div class="interactive-3d-container" id="tilt-container">
-                <div class="tilt-card">
-                    <img src="https://picsum.photos/seed/product/1200/800" alt="Apex Horizon Product" loading="lazy">
+        <!-- Section 3: Comparison Table -->
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <h2 class="section-title reveal">Clinical Comparison</h2>
+                <div class="table-wrapper reveal">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Generic Milk</th>
+                                <th class="highlight">Vitality Milk</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bio-available Protein</td>
+                                <td><svg class="icon-cross" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                <td class="highlight"><svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <td>Small Breed Ratio</td>
+                                <td><svg class="icon-cross" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                <td class="highlight"><svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <td>Vet-Certified</td>
+                                <td><svg class="icon-cross" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                <td class="highlight"><svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <td>Digestive Enzymes</td>
+                                <td><svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td class="highlight"><svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Priority Access -->
-        <section id="priority-access" class="section reveal">
-            <div class="form-layout">
-                <div class="form-content">
-                    <h2 class="section-title gold-text">Request Priority Access</h2>
-                    <p class="soft-silver">Entry is strictly curated. Please provide your credentials for review.</p>
-                    <form id="access-form">
-                        <div class="input-group">
-                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+        <!-- Section 4: UGC Video Wall -->
+        <section class="video-wall">
+            <div class="container">
+                <h2 class="section-title reveal">Proven Results</h2>
+                <div class="masonry-grid">
+                    <div class="video-card reveal">
+                        <div class="thumbnail">
+                            <img src="https://picsum.photos/seed/puppy/800/600" alt="Dog success">
+                            <div class="play-overlay">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        <p class="caption">"Max's energy levels tripled in just two weeks!"</p>
+                    </div>
+                    <div class="video-card reveal">
+                        <div class="thumbnail">
+                            <img src="https://picsum.photos/seed/canine/800/600" alt="Dog success">
+                            <div class="play-overlay">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <input type="text" id="referral" name="referral" placeholder="Referral Code (Optional)">
+                        <p class="caption">"The only supplement our vet actually recommends."</p>
+                    </div>
+                    <div class="video-card reveal">
+                        <div class="thumbnail">
+                            <img src="https://picsum.photos/seed/pet/800/600" alt="Dog success">
+                            <div class="play-overlay">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
-                        <button type="submit" class="submit-btn">Request Access</button>
-                    </form>
-                    <div id="form-success" class="hidden">Thank you. Our curators will contact you shortly.</div>
+                        <p class="caption">"Better coat and healthier digestion for Luna."</p>
+                    </div>
                 </div>
-                <div class="form-accent">
-                    <img src="https://picsum.photos/seed/exclusive/800/600" alt="Exclusive Access" loading="lazy">
+            </div>
+        </section>
+
+        <!-- Section 5: Subscription Pricing -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2 class="section-title reveal">Choose Your Plan</h2>
+                <div class="pricing-grid">
+                    <div class="price-card reveal">
+                        <h3>Basic</h3>
+                        <div class="price"><span>$</span>29<span>/mo</span></div>
+                        <ul class="features">
+                            <li>1x Vitality Pack</li>
+                            <li>Basic Nutrition Guide</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Get Started</a>
+                    </div>
+                    <div class="price-card recommended reveal">
+                        <div class="badge">Recommended</div>
+                        <h3>Standard</h3>
+                        <div class="price"><span>$</span>49<span>/mo</span></div>
+                        <ul class="features">
+                            <li>2x Vitality Packs</li>
+                            <li>Advanced Health Tracker</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Get Started</a>
+                    </div>
+                    <div class="price-card reveal">
+                        <h3>Premium</h3>
+                        <div class="price"><span>$</span>79<span>/mo</span></div>
+                        <ul class="features">
+                            <li>4x Vitality Packs</li>
+                            <li>Vet Consultation</li>
+                            <li>VIP Concierge</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Veterinary FAQ -->
+        <section id="faq" class="faq">
+            <div class="container faq-layout">
+                <div class="faq-content reveal">
+                    <h2 class="section-title">Veterinary FAQ</h2>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-trigger">
+                                <h4>Is this safe for puppies?</h4>
+                                <span class="icon">+</span>
+                            </div>
+                            <div class="accordion-panel">
+                                <p>Yes, Vitality is formulated for dogs 6 weeks and older, though we recommend consulting your vet for specific dosage based on weight.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-trigger">
+                                <h4>How does it differ from standard milk?</h4>
+                                <span class="icon">+</span>
+                            </div>
+                            <div class="accordion-panel">
+                                <p>We utilize a specific protein-to-lipid ratio that mimics the natural metabolic requirements of small breeds, reducing gastrointestinal stress.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-trigger">
+                                <h4>When will I see results?</h4>
+                                <span class="icon">+</span>
+                            </div>
+                            <div class="accordion-panel">
+                                <p>Most owners report visible improvements in coat quality and energy levels within 14 to 21 days of consistent use.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-image reveal">
+                    <img src="https://picsum.photos/seed/clinic/800/600" alt="Veterinary Clinic">
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p class="soft-silver">&copy; 2026 Apex Horizon. All Rights Reserved. <a href="#" class="soft-silver">Legal</a></p>
+    <footer class="global-footer">
+        <div class="container">
+            <p>&copy; 2026 Small Breed Vitality. All rights reserved. Clinical Grade Nutrition.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
