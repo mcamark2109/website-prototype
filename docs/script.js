@@ -1,64 +1,83 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.getElementById('main-nav');
-    const sections = document.querySelectorAll('.reveal');
-    const tiltContainer = document.getElementById('tilt-container');
-    const tiltCard = document.querySelector('.tilt-card');
-    const form = document.getElementById('access-form');
-    const successMsg = document.getElementById('form-success');
+    // --- Mobile Menu ---
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
 
-    // 1. Navigation background toggle
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+            });
+        });
+    }
+
+    // --- Growth Stage Calculator ---
+    const baselineInput = document.getElementById('baseline');
+    const currentInput = document.getElementById('current');
+    const resultOutput = document.getElementById('resultOutput');
+    const stageOutput = document.getElementById('stageOutput');
+
+    const calculateGrowth = () => {
+        const baseline = parseFloat(baselineInput.value);
+        const current = parseFloat(currentInput.value);
+
+        if (isNaN(baseline) || isNaN(current) || baseline <= 0) {
+            resultOutput.textContent = '--';
+            stageOutput.textContent = 'Enter valid positive values';
+            return;
         }
-    });
 
-    // 2. Intersection Observer for reveal animations
-    const revealOptions = {
-        threshold: 0.15
+        const growth = ((current - baseline) / baseline) * 100;
+        const growthFixed = growth.toFixed(2);
+        
+        resultOutput.textContent = `${growthFixed}%`;
+
+        // Define clinical stages based on growth percentage
+        let stage = '';
+        if (growth <= 0) stage = 'Stable / Regression';
+        else if (growth > 0 && growth <= 10) stage = 'Stage I: Minimal Growth';
+        else if (growth > 10 && growth <= 30) stage = 'Stage II: Moderate Growth';
+        else if (growth > 30 && growth <= 60) stage = 'Stage III: Significant Growth';
+        else stage = 'Stage IV: Accelerated Growth';
+
+        stageOutput.textContent = stage;
     };
 
-    const revealObserver = new IntersectionObserver((entries) => {
+    if (baselineInput && currentInput) {
+        baselineInput.addEventListener('input', calculateGrowth);
+        currentInput.addEventListener('input', calculateGrowth);
+    }
+
+    // --- Intersection Observer (Fade-in & ScrollSpy) ---
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    const observerOptions = {
+        threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                // Fade in
+                entry.target.classList.add('visible');
+
+                // ScrollSpy: Update active link
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
-    }, revealOptions);
+    }, observerOptions);
 
-    sections.forEach(section => {
-        revealObserver.observe(section);
-    });
-
-    // 3. 3D Interactive Simulation (Parallax Tilt)
-    if (tiltContainer && tiltCard) {
-        tiltContainer.addEventListener('mousemove', (e) => {
-            const rect = tiltContainer.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20; // Adjust intensity
-            const rotateY = (centerX - x) / 20;
-            
-            tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        tiltContainer.addEventListener('mouseleave', () => {
-            tiltCard.style.transform = `rotateX(0deg) rotateY(0deg)`;
-        });
-    }
-
-    // 4. Form Handling
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            form.style.display = 'none';
-            successMsg.classList.remove('hidden');
-        });
-    }
+    sections.forEach(section => observer.observe(section));
 });
