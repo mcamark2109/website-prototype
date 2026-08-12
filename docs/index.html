@@ -3,538 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Basketball | High Performance</title>
+    <title>Apex Horizon | Immersive Experience</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-bg: #121212;
-            --secondary-bg: #1E1E1E;
-            --accent-color: #FF5F1F;
-            --primary-text: #FFFFFF;
-            --secondary-text: #A0A0A0;
-            --border-color: #333333;
-            --font-main: 'Inter', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--primary-bg);
-            color: var(--primary-text);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3 {
-            text-transform: uppercase;
-        }
-
-        /* Utility Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-            padding: 0 20px;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: url('https://picsum.photos/seed/basketball/1920/1080') center/cover no-repeat;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: -1;
-        }
-
-        .hero h1 {
-            font-weight: 900;
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            letter-spacing: -2px;
-            margin-bottom: 2rem;
-            color: var(--primary-text);
-        }
-        .hero h1 span {
-            color: var(--accent-color);
-        }
-
-        .countdown {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 3rem;
-            width: 100%;
-            max-width: 600px;
-        }
-        .countdown-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-        .countdown-digit {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-color);
-        }
-        .countdown-label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: var(--secondary-text);
-            margin-top: 5px;
-        }
-
-        .cta-button {
-            background-color: var(--accent-color);
-            color: #000;
-            padding: 15px 40px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 95, 31, 0.3);
-        }
-
-        /* The Cause Section */
-        .cause {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .cause-content h2 {
-            font-weight: 800;
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            margin-bottom: 1.5rem;
-        }
-        .cause-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        .cause-list li {
-            color: var(--secondary-text);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-            font-size: 1.1rem;
-        }
-        .cause-list li::before {
-            content: '✓';
-            color: var(--accent-color);
-            font-weight: 900;
-            margin-right: 15px;
-        }
-        .cause-image img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        /* Product Gallery */
-        .gallery {
-            background-color: var(--secondary-bg);
-            padding: 100px 20px;
-        }
-        .section-title {
-            text-align: center;
-            font-weight: 800;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-transform: uppercase;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .product-card {
-            background: var(--primary-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: border-color 0.3s ease;
-        }
-        .product-card:hover {
-            border-color: var(--accent-color);
-        }
-        .product-img-wrapper {
-            overflow: hidden;
-            height: 250px;
-        }
-        .product-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .product-card:hover .product-img-wrapper img {
-            transform: scale(1.1);
-        }
-        .product-info {
-            padding: 25px;
-            text-align: center;
-        }
-        .product-info h3 {
-            margin-bottom: 10px;
-            color: var(--primary-text);
-        }
-        .product-info p {
-            color: var(--secondary-text);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-        .buy-btn {
-            border: 2px solid var(--accent-color);
-            color: var(--primary-text);
-            padding: 10px 25px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        .buy-btn:hover {
-            background: var(--accent-color);
-            color: #000;
-        }
-
-        /* Social Wall */
-        .social-wall {
-            padding: 100px 0;
-            background: var(--primary-bg);
-        }
-        .wall-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 10px;
-        }
-        .wall-item {
-            position: relative;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-        }
-        .wall-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(1);
-            transition: filter 0.4s ease;
-        }
-        .wall-item:hover img {
-            filter: grayscale(0);
-        }
-        .wall-overlay {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            display: flex;
-            gap: 8px;
-        }
-        .wall-icon {
-            background: rgba(0,0,0,0.5);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-bg);
-            border-top: 4px solid var(--accent-color);
-            padding: 80px 20px;
-            text-align: center;
-        }
-        .footer-cta {
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        .footer-cta h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        .email-form {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .email-input {
-            flex: 1;
-            background: var(--secondary-bg);
-            border: 1px solid var(--border-color);
-            padding: 12px 20px;
-            color: white;
-            border-radius: 4px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-        .email-input:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(255, 95, 31, 0.2);
-        }
-        .submit-btn {
-            background: var(--accent-color);
-            color: #000;
-            border: none;
-            padding: 12px 25px;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: transform 0.2s ease;
-        }
-        .submit-btn:hover {
-            transform: scale(1.05);
-        }
-        .footer-bottom {
-            margin-top: 60px;
-            color: var(--secondary-text);
-            font-size: 0.8rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .cause {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .cause-list li {
-                justify-content: center;
-            }
-            .countdown {
-                gap: 10px;
-            }
-            .countdown-digit {
-                font-size: 1.5rem;
-            }
-            .email-form {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <h1 class="reveal">Elevate Your <br><span>Game Performance</span></h1>
-        
-        <div class="countdown reveal">
-            <div class="countdown-item">
-                <span class="countdown-digit" id="days">00</span>
-                <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-digit" id="hours">00</span>
-                <span class="countdown-label">Hours</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-digit" id="minutes">00</span>
-                <span class="countdown-label">Mins</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-digit" id="seconds">00</span>
-                <span class="countdown-label">Secs</span>
-            </div>
-        </div>
+    <header id="main-nav">
+        <div class="logo">APEX HORIZON</div>
+        <nav>
+            <a href="#priority-access" class="cta-button">Apply for Access</a>
+        </nav>
+    </header>
 
-        <a href="#products" class="cta-button reveal">Get Early Access</a>
-    </section>
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="hero" class="section">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="bg-video">
+                    <source src="https://picsum.photos/seed/cinematic/1920/1080" type="video/mp4">
+                    <!-- Note: picsum is image, but using it as a placeholder. In real world, replace with .mp4 -->
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="gold-text">Transcending the Ordinary</h1>
+                <div class="scroll-indicator">
+                    <span>Scroll to Explore</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
 
-    <section class="cause reveal">
-        <div class="cause-content">
-            <h2>The Mission</h2>
-            <ul class="cause-list">
-                <li>Empowering local courts with professional grade equipment.</li>
-                <li>Bridging the gap between streetball and the pros.</li>
-                <li>Providing scholarships for underprivileged youth athletes.</li>
-                <li>Creating a global community of basketball excellence.</li>
-            </ul>
-            <a href="#products" class="cta-button">Learn More</a>
-        </div>
-        <div class="cause-image">
-            <img src="https://picsum.photos/seed/community/800/600" alt="Community Impact" loading="lazy">
-        </div>
-    </section>
+        <!-- Section 2: Craftsmanship -->
+        <section id="craftsmanship" class="section reveal">
+            <h2 class="section-title gold-text">Unrivaled Craftsmanship</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item item-1">
+                    <img src="https://picsum.photos/seed/detail/800/600" alt="Detail" loading="lazy">
+                    <div class="parallax-text">Precision Engineering</div>
+                </div>
+                <div class="gallery-item item-2">
+                    <img src="https://picsum.photos/seed/material/800/600" alt="Material" loading="lazy">
+                    <div class="parallax-text">Rare Materials</div>
+                </div>
+                <div class="gallery-item item-3">
+                    <img src="https://picsum.photos/seed/precision/800/600" alt="Precision" loading="lazy">
+                    <div class="parallax-text">Timeless Heritage</div>
+                </div>
+            </div>
+        </section>
 
-    <section class="gallery" id="products">
-        <h2 class="section-title reveal">Elite Gear</h2>
-        <div class="product-grid">
-            <div class="product-card reveal">
-                <div class="product-img-wrapper">
-                    <img src="https://picsum.photos/seed/gear/800/600" alt="Gear 1" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Pro Grip Ball</h3>
-                    <p>Maximum traction for ultimate control on any surface.</p>
-                    <a href="#" class="buy-btn">Buy Now</a>
+        <!-- Section 3: The Apex Horizon -->
+        <section id="apex-horizon" class="section reveal">
+            <h2 class="section-title gold-text">The Apex Horizon</h2>
+            <div class="interactive-3d-container" id="tilt-container">
+                <div class="tilt-card">
+                    <img src="https://picsum.photos/seed/product/1200/800" alt="Apex Horizon Product" loading="lazy">
                 </div>
             </div>
-            <div class="product-card reveal">
-                <div class="product-img-wrapper">
-                    <img src="https://picsum.photos/seed/apparel/800/600" alt="Apparel 1" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Performance Jersey</h3>
-                    <p>Breathable, moisture-wicking fabric for peak performance.</p>
-                    <a href="#" class="buy-btn">Buy Now</a>
-                </div>
-            </div>
-            <div class="product-card reveal">
-                <div class="product-img-wrapper">
-                    <img src="https://picsum.photos/seed/equipment/800/600" alt="Equipment 1" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Training Kit</h3>
-                    <p>Complete set of agility tools for the modern athlete.</p>
-                    <a href="#" class="buy-btn">Buy Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="social-wall">
-        <h2 class="section-title reveal">Community Proof</h2>
-        <div class="wall-grid">
-            <div class="wall-item reveal">
-                <img src="https://picsum.photos/seed/action/800/600" alt="UGC 1" loading="lazy">
-                <div class="wall-overlay">
-                    <div class="wall-icon">IG</div>
+        <!-- Section 4: Priority Access -->
+        <section id="priority-access" class="section reveal">
+            <div class="form-layout">
+                <div class="form-content">
+                    <h2 class="section-title gold-text">Request Priority Access</h2>
+                    <p class="soft-silver">Entry is strictly curated. Please provide your credentials for review.</p>
+                    <form id="access-form">
+                        <div class="input-group">
+                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="referral" name="referral" placeholder="Referral Code (Optional)">
+                        </div>
+                        <button type="submit" class="submit-btn">Request Access</button>
+                    </form>
+                    <div id="form-success" class="hidden">Thank you. Our curators will contact you shortly.</div>
+                </div>
+                <div class="form-accent">
+                    <img src="https://picsum.photos/seed/exclusive/800/600" alt="Exclusive Access" loading="lazy">
                 </div>
             </div>
-            <div class="wall-item reveal">
-                <img src="https://picsum.photos/seed/court/800/600" alt="UGC 2" loading="lazy">
-                <div class="wall-overlay">
-                    <div class="wall-icon">TT</div>
-                </div>
-            </div>
-            <div class="wall-item reveal">
-                <img src="https://picsum.photos/seed/athlete/800/600" alt="UGC 3" loading="lazy">
-                <div class="wall-overlay">
-                    <div class="wall-icon">IG</div>
-                </div>
-            </div>
-            <div class="wall-item reveal">
-                <img src="https://picsum.photos/seed/game/800/600" alt="UGC 4" loading="lazy">
-                <div class="wall-overlay">
-                    <div class="wall-icon">TT</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        <div class="footer-cta reveal">
-            <h3>Join the Elite Circle</h3>
-            <p style="color: var(--secondary-text); margin-bottom: 25px;">Be the first to know when we drop new gear.</p>
-            <form class="email-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                <input type="email" class="email-input" placeholder="Enter your email" required>
-                <button type="submit" class="submit-btn">Subscribe</button>
-            </form>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Elite Basketball. All Rights Reserved. <br>
-            Follow us on Instagram &bull; TikTok &bull; X
-        </div>
+        <p class="soft-silver">&copy; 2026 Apex Horizon. All Rights Reserved. <a href="#" class="soft-silver">Legal</a></p>
     </footer>
 
-    <script>
-        // Countdown Timer
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 30); // Set to 30 days from now
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = days.toString().padStart(2, '0');
-            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Reveal Animations using IntersectionObserver
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
