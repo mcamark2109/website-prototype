@@ -1,78 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Delivery Timer ---
-    const timerDisplay = document.getElementById('delivery-timer');
-    let timeLeft = 45 * 60; // 45 minutes in seconds
+    // 1. Countdown Timer
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 14); // Set target to 14 days from now
 
     function updateTimer() {
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        if (timeLeft > 0) {
-            timeLeft--;
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            document.getElementById('timer').innerHTML = "DROPPED";
         }
     }
 
-    setInterval(updateTimer, 1000);
+    const timerInterval = setInterval(updateTimer, 1000);
     updateTimer();
 
-    // --- Header Scroll Effect ---
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // --- ZIP Validator ---
-    const zipInput = document.getElementById('zip-input');
-    const zipBtn = document.getElementById('zip-btn');
-    const zipFeedback = document.getElementById('zip-feedback');
-
-    zipBtn.addEventListener('click', () => {
-        const zip = zipInput.value;
-        const zipRegex = /^\d{5}$/;
-
-        if (zipRegex.test(zip)) {
-            zipFeedback.classList.remove('hidden');
-            zipInput.style.borderColor = '#28a745';
-        } else {
-            zipFeedback.classList.add('hidden');
-            zipInput.style.borderColor = '#dc3545';
-            alert('Please enter a valid 5-digit ZIP code.');
-        }
-    });
-
-    // --- Intersection Observer for Fade-in ---
+    // 2. Reveal Animations (Intersection Observer)
     const observerOptions = {
-        threshold: 0.1
+        threshold: 0.15
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('active');
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // --- Smooth Scroll for Anchor Links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
+    // 3. Parallax / Product Rotation on Scroll
+    const productWrapper = document.querySelector('.product-wrapper');
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        // Rotate product slightly based on scroll position when in view
+        if (productWrapper) {
+            const rotation = scrolled * 0.05; 
+            productWrapper.style.transform = `rotateY(${rotation}deg)`;
+        }
+    });
+
+    // 4. Hotspot Interaction
+    document.querySelectorAll('.hotspot').forEach(spot => {
+        spot.addEventListener('click', () => {
+            alert(spot.getAttribute('data-info'));
         });
     });
 });

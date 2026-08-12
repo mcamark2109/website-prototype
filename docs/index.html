@@ -3,98 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapid-Response Medical Cannabis Delivery</title>
+    <title>Industrial Luxury | Performance Engineered</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Open+Sans:wght@300;400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header id="main-header">
-        <div class="header-container">
-            <div class="logo">
-                <div class="logo-placeholder">MED-FAST</div>
-            </div>
-            <div class="timer-container">
-                Estimated Arrival: <span id="delivery-timer">45:00</span>
-            </div>
-            <div class="header-cta">
-                <a href="#services" class="btn-primary">Order Now</a>
-            </div>
-        </div>
+    <header class="global-nav">
+        <div class="logo">INDUSTRIAL<span>LUXURY</span></div>
+        <nav>
+            <a href="#engineering">Engineering</a>
+            <a href="#drop">The Drop</a>
+        </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1>Clinical Precision. <br><span class="highlight">Rapid Response.</span></h1>
-                    <p>Professional medical cannabis delivery designed for accessibility, speed, and discretion. We ensure your wellness arrives exactly when you need it.</p>
-                    
-                    <div class="zip-validator">
-                        <input type="text" id="zip-input" placeholder="Enter ZIP Code" maxlength="5">
-                        <button id="zip-btn" class="btn-secondary">Check My Zone</button>
-                        <div id="zip-feedback" class="feedback hidden">✓ Zone Available</div>
+        <section id="hero" class="section">
+            <div class="video-container">
+                <!-- Using a high-quality placeholder video source or fallback image -->
+                <img src="https://picsum.photos/seed/impact/1920/1080" alt="Hero Background" class="bg-asset">
+                <div class="overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1>ENGINEERED <span class="highlight">PRECISION</span></h1>
+                <a href="#drop" class="cta-button">RESERVE NOW</a>
+            </div>
+        </section>
+
+        <section id="engineering" class="section">
+            <div class="grid-container">
+                <div class="model-viewport">
+                    <div class="product-wrapper">
+                        <img src="https://picsum.photos/seed/product/800/600" alt="Product Model" class="product-img">
+                        <!-- Hotspots -->
+                        <div class="hotspot" style="top: 30%; left: 40%;" data-info="Stability Zone: Reinforced lateral support for maximum control."></div>
+                        <div class="hotspot" style="top: 60%; left: 50%;" data-info="Energy-Return Sole: Kinetic absorption technology."></div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://picsum.photos/seed/medical/800/600" alt="Clinical Setting">
+                <div class="tech-specs">
+                    <h2 class="reveal">The Engineering</h2>
+                    <div class="spec-item reveal">
+                        <h3>Stability Zones</h3>
+                        <p>Advanced structural geometry ensuring peak stability during high-intensity transitions.</p>
+                    </div>
+                    <div class="spec-item reveal">
+                        <h3>Energy-Return Soles</h3>
+                        <p>Proprietary compound engineered for 98% energy recovery per stride.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="service-grid-section">
-            <div class="section-title">
-                <h2>Care Pathways</h2>
-                <p>Tailored delivery options for every patient need.</p>
-            </div>
-            <div class="service-grid">
-                <div class="service-card fade-in">
-                    <img src="https://picsum.photos/seed/wellness/800/600" alt="Wellness Care">
-                    <div class="card-content">
-                        <h3>Chronic Patients</h3>
-                        <p>Optimized recurring schedules to ensure you never run out of essential medication.</p>
-                        <a href="#" class="card-link">View Curated Bundle →</a>
-                    </div>
+        <section id="drop" class="section">
+            <div class="drop-card reveal">
+                <h2>The Anticipation</h2>
+                <div id="timer" class="countdown">
+                    <div class="time-block"><span id="days">00</span><label>Days</label></div>
+                    <div class="time-block"><span id="hours">00</span><label>Hours</label></div>
+                    <div class="time-block"><span id="minutes">00</span><label>Mins</label></div>
+                    <div class="time-block"><span id="seconds">00</span><label>Secs</label></div>
                 </div>
-                <div class="service-card fade-in">
-                    <img src="https://picsum.photos/seed/care/800/600" alt="Mobility Care">
-                    <div class="card-content">
-                        <h3>Mobility-Impaired</h3>
-                        <p>Comprehensive door-to-door assistance and white-glove delivery services.</p>
-                        <a href="#" class="card-link">View Curated Bundle →</a>
-                    </div>
-                </div>
-                <div class="service-card fade-in">
-                    <img src="https://picsum.photos/seed/support/800/600" alt="Caregiver Support">
-                    <div class="card-content">
-                        <h3>Caregivers</h3>
-                        <p>Simplified administrative management and bulk bundle options for multi-patient care.</p>
-                        <a href="#" class="card-link">View Curated Bundle →</a>
-                    </div>
-                </div>
+                <form class="capture-form">
+                    <input type="email" placeholder="ENTER EMAIL" required>
+                    <button type="submit" class="notify-btn">NOTIFY ME</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="footer-watermark">
-            <img src="https://picsum.photos/seed/clinic/800/600" alt="Clinic Background">
-        </div>
+    <footer class="global-footer">
         <div class="footer-content">
-            <div class="compliance-row">
-                <div class="badge">HIPAA Compliant</div>
-                <div class="badge">FDA Registered</div>
-                <div class="badge">State Certified</div>
-            </div>
-            <div class="referral-row">
-                <a href="#">Physician Referrals</a>
-                <span class="separator">|</span>
-                <a href="#">Medical Certification</a>
-            </div>
-            <div class="copyright">
-                &copy; 2026 Rapid-Response Medical Cannabis. <a href="#">Privacy Policy</a>
+            <p>&copy; 2026 INDUSTRIAL LUXURY. ALL RIGHTS RESERVED.</p>
+            <div class="socials">
+                <a href="#">INSTAGRAM</a>
+                <a href="#">TWITTER</a>
             </div>
         </div>
     </footer>
