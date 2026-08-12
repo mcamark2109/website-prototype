@@ -1,61 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Countdown Timer
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 14); // Set target to 14 days from now
-
-    function updateTimer() {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById('days').innerText = String(days).padStart(2, '0');
-        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
-
-        if (distance < 0) {
-            clearInterval(timerInterval);
-            document.getElementById('timer').innerHTML = "DROPPED";
+    // Navigation Scroll Effect
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
         }
-    }
+    });
 
-    const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
-
-    // 2. Reveal Animations (Intersection Observer)
+    // Intersection Observer for Fade-In Animations
     const observerOptions = {
-        threshold: 0.15
+        threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                entry.target.classList.add('visible');
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // 3. Parallax / Product Rotation on Scroll
-    const productWrapper = document.querySelector('.product-wrapper');
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        // Rotate product slightly based on scroll position when in view
-        if (productWrapper) {
-            const rotation = scrolled * 0.05; 
-            productWrapper.style.transform = `rotateY(${rotation}deg)`;
-        }
-    });
-
-    // 4. Hotspot Interaction
-    document.querySelectorAll('.hotspot').forEach(spot => {
-        spot.addEventListener('click', () => {
-            alert(spot.getAttribute('data-info'));
+    // Mobile Menu Toggle (Basic implementation)
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-    });
+    }
 });
+
+// Checkout Step Logic
+function goToStep(stepNumber) {
+    // Hide all steps
+    document.querySelectorAll('.step').forEach(step => {
+        step.classList.remove('active');
+    });
+
+    // Show targeted step
+    const targetStep = document.getElementById(`step-${stepNumber}`);
+    if (targetStep) {
+        targetStep.classList.add('active');
+    }
+
+    // Update summary for step 3
+    if (stepNumber === 3) {
+        const selectedKit = document.querySelector('input[name="kit"]:checked')?.value || 'Basic';
+        const kitText = selectedKit.charAt(0).toUpperCase() + selectedKit.slice(1) + ' Kit';
+        document.getElementById('selected-kit').textContent = kitText;
+    }
+}

@@ -3,81 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industrial Luxury | Performance Engineered</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Play Your Way | Urban Athletic Gear</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="global-nav">
-        <div class="logo">INDUSTRIAL<span>LUXURY</span></div>
-        <nav>
-            <a href="#engineering">Engineering</a>
-            <a href="#drop">The Drop</a>
-        </nav>
-    </header>
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">PLAY<span>YOURWAY</span></a>
+            <ul class="nav-links">
+                <li><a href="#gear">Gear</a></li>
+                <li><a href="#players">Players</a></li>
+                <li><a href="#kits">Starter Kits</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
 
     <main>
-        <section id="hero" class="section">
+        <section class="hero">
             <div class="video-container">
-                <!-- Using a high-quality placeholder video source or fallback image -->
-                <img src="https://picsum.photos/seed/impact/1920/1080" alt="Hero Background" class="bg-asset">
+                <!-- Using a placeholder image as the site is static and video files aren't provided -->
+                <img src="https://picsum.photos/seed/urban/1920/1080" alt="Urban Athletic Background" class="hero-bg">
                 <div class="overlay"></div>
             </div>
             <div class="hero-content">
-                <h1>ENGINEERED <span class="highlight">PRECISION</span></h1>
-                <a href="#drop" class="cta-button">RESERVE NOW</a>
+                <h1>PLAY YOUR WAY</h1>
+                <a href="#kits" class="cta-button">GET STARTED</a>
             </div>
         </section>
 
-        <section id="engineering" class="section">
-            <div class="grid-container">
-                <div class="model-viewport">
-                    <div class="product-wrapper">
-                        <img src="https://picsum.photos/seed/product/800/600" alt="Product Model" class="product-img">
-                        <!-- Hotspots -->
-                        <div class="hotspot" style="top: 30%; left: 40%;" data-info="Stability Zone: Reinforced lateral support for maximum control."></div>
-                        <div class="hotspot" style="top: 60%; left: 50%;" data-info="Energy-Return Sole: Kinetic absorption technology."></div>
+        <section id="gear" class="product-grid-section">
+            <div class="container">
+                <h2 class="section-title">GEAR FOR EVERYONE</h2>
+                <div class="product-grid">
+                    <div class="product-card span-2 fade-in">
+                        <img src="https://picsum.photos/seed/apparel/800/600" alt="Apparel">
+                        <div class="card-info"><h3>Premium Apparel</h3></div>
                     </div>
-                </div>
-                <div class="tech-specs">
-                    <h2 class="reveal">The Engineering</h2>
-                    <div class="spec-item reveal">
-                        <h3>Stability Zones</h3>
-                        <p>Advanced structural geometry ensuring peak stability during high-intensity transitions.</p>
+                    <div class="product-card fade-in">
+                        <img src="https://picsum.photos/seed/footwear/800/600" alt="Footwear">
+                        <div class="card-info"><h3>Pro Footwear</h3></div>
                     </div>
-                    <div class="spec-item reveal">
-                        <h3>Energy-Return Soles</h3>
-                        <p>Proprietary compound engineered for 98% energy recovery per stride.</p>
+                    <div class="product-card fade-in">
+                        <img src="https://picsum.photos/seed/accessory/800/600" alt="Accessory">
+                        <div class="card-info"><h3>Elite Accessories</h3></div>
+                    </div>
+                    <div class="product-card span-2 fade-in">
+                        <img src="https://picsum.photos/seed/equipment/800/600" alt="Equipment">
+                        <div class="card-info"><h3>Advanced Equipment</h3></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="drop" class="section">
-            <div class="drop-card reveal">
-                <h2>The Anticipation</h2>
-                <div id="timer" class="countdown">
-                    <div class="time-block"><span id="days">00</span><label>Days</label></div>
-                    <div class="time-block"><span id="hours">00</span><label>Hours</label></div>
-                    <div class="time-block"><span id="minutes">00</span><label>Mins</label></div>
-                    <div class="time-block"><span id="seconds">00</span><label>Secs</label></div>
+        <section id="players" class="ugc-gallery-section">
+            <div class="container">
+                <h2 class="section-title">REAL PLAYERS</h2>
+                <div class="masonry-grid">
+                    <div class="masonry-item fade-in"><img src="https://picsum.photos/seed/athlete/800/600" alt="Athlete"></div>
+                    <div class="masonry-item fade-in"><img src="https://picsum.photos/seed/action/600/800" alt="Action"></div>
+                    <div class="masonry-item fade-in"><img src="https://picsum.photos/seed/city/800/800" alt="City"></div>
+                    <div class="masonry-item fade-in"><img src="https://picsum.photos/seed/street/600/600" alt="Street"></div>
                 </div>
-                <form class="capture-form">
-                    <input type="email" placeholder="ENTER EMAIL" required>
-                    <button type="submit" class="notify-btn">NOTIFY ME</button>
-                </form>
+            </div>
+        </section>
+
+        <section id="kits" class="checkout-section">
+            <div class="container">
+                <h2 class="section-title">STARTER KITS</h2>
+                <div class="checkout-container">
+                    <div class="step active" id="step-1">
+                        <h3>1. SELECT KIT</h3>
+                        <div class="kit-options">
+                            <label class="kit-radio">
+                                <input type="radio" name="kit" value="basic" checked>
+                                <span class="radio-custom"></span> Basic Kit
+                            </label>
+                            <label class="kit-radio">
+                                <input type="radio" name="kit" value="pro">
+                                <span class="radio-custom"></span> Pro Kit
+                            </label>
+                            <label class="kit-radio">
+                                <input type="radio" name="kit" value="elite">
+                                <span class="radio-custom"></span> Elite Kit
+                            </label>
+                        </div>
+                        <button class="next-btn" onclick="goToStep(2)">Next &rarr;</button>
+                    </div>
+                    <div class="step" id="step-2">
+                        <h3>2. PERSONALIZE</h3>
+                        <input type="text" placeholder="Enter your name/handle" class="personalize-input">
+                        <div class="checkout-img">
+                            <img src="https://picsum.photos/seed/kit/800/600" alt="Starter Kit Preview">
+                        </div>
+                        <div class="btn-group">
+                            <button class="prev-btn" onclick="goToStep(1)">&larr; Back</button>
+                            <button class="next-btn" onclick="goToStep(3)">Next &rarr;</button>
+                        </div>
+                    </div>
+                    <div class="step" id="step-3">
+                        <h3>3. CONFIRM</h3>
+                        <p>Ready to play your way?</p>
+                        <div class="summary-box">
+                            <p>Selected: <strong id="selected-kit">Basic Kit</strong></p>
+                        </div>
+                        <div class="btn-group">
+                            <button class="prev-btn" onclick="goToStep(2)">&larr; Back</button>
+                            <button class="confirm-btn">CONFIRM ORDER</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="global-footer">
-        <div class="footer-content">
-            <p>&copy; 2026 INDUSTRIAL LUXURY. ALL RIGHTS RESERVED.</p>
-            <div class="socials">
-                <a href="#">INSTAGRAM</a>
-                <a href="#">TWITTER</a>
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 PLAY YOUR WAY. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact</a>
+                <a href="#">Legal</a>
+                <a href="#">Privacy</a>
             </div>
         </div>
     </footer>
