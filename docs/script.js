@@ -1,56 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // FAQ Accordion
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const item = header.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close all other items
-            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-            
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        });
+    // 1. Delivery Calculator Logic
+    const calcBtn = document.getElementById('calc-btn');
+    const zipInput = document.getElementById('zipcode');
+    const calcResult = document.getElementById('calc-result');
+
+    calcBtn.addEventListener('click', () => {
+        const zip = zipInput.value.trim();
+        if (!zip) {
+            calcResult.textContent = "Please enter a valid zip code.";
+            calcResult.style.color = "red";
+            return;
+        }
+
+        calcBtn.disabled = true;
+        calcBtn.textContent = "Calculating...";
+        calcResult.textContent = "Connecting to logistics server...";
+        calcResult.style.color = "var(--primary-accent)";
+
+        // Simulate network delay
+        setTimeout(() => {
+            const eta = Math.floor(Math.random() * (60 - 30 + 1)) + 30;
+            calcResult.innerHTML = `Estimated delivery to your location: <strong>${eta} Minutes</strong>`;
+            calcBtn.disabled = false;
+            calcBtn.textContent = "Calculate ETA";
+        }, 1500);
     });
 
-    // App Demo Switcher
-    const demoBtns = document.querySelectorAll('.demo-btn');
-    const demoImg = document.getElementById('demo-img');
-    const images = {
-        analysis: 'https://picsum.photos/seed/interface/800/600',
-        plan: 'https://picsum.photos/seed/analytics/800/600'
-    };
+    // 2. Testimonial Slider Logic
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    let currentSlide = 0;
 
-    demoBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            demoBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const target = btn.getAttribute('data-target');
-            demoImg.src = images[target];
-        });
-    });
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        if (index >= slides.length) currentSlide = 0;
+        else if (index < 0) currentSlide = slides.length - 1;
+        else currentSlide = index;
 
-    // Intersection Observer for Fade-in Animations
-    const observerOptions = {
-        threshold: 0.1
-    };
+        slides[currentSlide].classList.add('active');
+    }
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
+    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
 
-    // Apply fade-in to specific elements
-    const animatedElements = document.querySelectorAll('.gap-card, .zigzag-item, .section-title');
-    animatedElements.forEach(el => {
-        el.classList.add('fade-in-up');
-        observer.observe(el);
-    });
+    // Auto-advance every 5 seconds
+    setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000);
 });
