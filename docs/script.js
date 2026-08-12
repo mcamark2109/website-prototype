@@ -1,83 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Mobile Menu ---
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
+    // FAQ Accordion
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            
+            if (!isActive) {
+                item.classList.add('active');
+            }
         });
+    });
 
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-            });
-        });
-    }
-
-    // --- Growth Stage Calculator ---
-    const baselineInput = document.getElementById('baseline');
-    const currentInput = document.getElementById('current');
-    const resultOutput = document.getElementById('resultOutput');
-    const stageOutput = document.getElementById('stageOutput');
-
-    const calculateGrowth = () => {
-        const baseline = parseFloat(baselineInput.value);
-        const current = parseFloat(currentInput.value);
-
-        if (isNaN(baseline) || isNaN(current) || baseline <= 0) {
-            resultOutput.textContent = '--';
-            stageOutput.textContent = 'Enter valid positive values';
-            return;
-        }
-
-        const growth = ((current - baseline) / baseline) * 100;
-        const growthFixed = growth.toFixed(2);
-        
-        resultOutput.textContent = `${growthFixed}%`;
-
-        // Define clinical stages based on growth percentage
-        let stage = '';
-        if (growth <= 0) stage = 'Stable / Regression';
-        else if (growth > 0 && growth <= 10) stage = 'Stage I: Minimal Growth';
-        else if (growth > 10 && growth <= 30) stage = 'Stage II: Moderate Growth';
-        else if (growth > 30 && growth <= 60) stage = 'Stage III: Significant Growth';
-        else stage = 'Stage IV: Accelerated Growth';
-
-        stageOutput.textContent = stage;
+    // App Demo Switcher
+    const demoBtns = document.querySelectorAll('.demo-btn');
+    const demoImg = document.getElementById('demo-img');
+    const images = {
+        analysis: 'https://picsum.photos/seed/interface/800/600',
+        plan: 'https://picsum.photos/seed/analytics/800/600'
     };
 
-    if (baselineInput && currentInput) {
-        baselineInput.addEventListener('input', calculateGrowth);
-        currentInput.addEventListener('input', calculateGrowth);
-    }
+    demoBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            demoBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const target = btn.getAttribute('data-target');
+            demoImg.src = images[target];
+        });
+    });
 
-    // --- Intersection Observer (Fade-in & ScrollSpy) ---
-    const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-
+    // Intersection Observer for Fade-in Animations
     const observerOptions = {
-        threshold: 0.2
+        threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Fade in
                 entry.target.classList.add('visible');
-
-                // ScrollSpy: Update active link
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
             }
         });
     }, observerOptions);
 
-    sections.forEach(section => observer.observe(section));
+    // Apply fade-in to specific elements
+    const animatedElements = document.querySelectorAll('.gap-card, .zigzag-item, .section-title');
+    animatedElements.forEach(el => {
+        el.classList.add('fade-in-up');
+        observer.observe(el);
+    });
 });

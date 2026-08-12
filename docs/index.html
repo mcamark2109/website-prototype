@@ -3,170 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinical Growth Analysis Portal | Evidence-Based Validation</title>
+    <title>Dog Milk Nutrition | Clinical Grade Canine Health</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Open+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">DogMilk<span>Nutrition</span></div>
+            <ul class="nav-links">
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#solution">The Solution</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#cta" class="btn btn-primary">Download Now</a>
+        </div>
+    </nav>
 
-    <header class="main-header">
-        <div class="container header-container">
-            <div class="logo">
-                <span class="logo-text">Clinical<span class="accent-text">Growth</span></span>
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Precision Clinical Nutrition for Your Dog</h1>
+                <p>Science-backed nutritional analysis and custom milk-based supplementation plans designed by veterinary experts to close critical health gaps.</p>
+                <div class="hero-ctas">
+                    <a href="#" class="store-btn"><img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="App Store"> App Store</a>
+                    <a href="#" class="store-btn"><img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Play Store"> Play Store</a>
+                </div>
             </div>
-            <nav class="nav-menu" id="navMenu">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#problem">Analysis</a></li>
-                    <li><a href="#calculator">Calculator</a></li>
-                    <li><a href="#methodology">Methodology</a></li>
-                    <li><a href="#directory">Directory</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="hero-image">
+                <img src="https://picsum.photos/seed/clinical/800/600" alt="Clinical Nutrition Analysis" loading="lazy">
+                <div class="trust-badge">
+                    <span class="check">✓</span> Vet-Approved
+                </div>
+            </div>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero section fade-in">
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <h1>Precision in Clinical Growth Analysis</h1>
-                    <p>The gold standard for medical professionals seeking evidence-based data validation and clinical growth metrics.</p>
-                    <a href="#calculator" class="cta-button">Start Analysis</a>
-                    <div class="trust-badges">
-                        <span class="badge">✓ Vet-Verified</span>
-                        <span class="badge">✓ Clinical Grade</span>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://picsum.photos/seed/clinic/800/600" alt="Clinical environment" loading="lazy">
-                </div>
-            </div>
-        </section>
-
-        <!-- Problem Section -->
-        <section id="problem" class="problem section fade-in">
-            <div class="container">
-                <h2 class="section-title">The Precision Gap</h2>
-                <div class="comparison-grid">
-                    <div class="comp-card anecdotal">
-                        <h3>Anecdotal Reports</h3>
-                        <p>Unverified observations, subjective bias, and inconsistent data collection leading to unreliable outcomes.</p>
-                        <span class="status-tag">Low Reliability</span>
-                    </div>
-                    <div class="comp-card clinical">
-                        <h3>Clinical Standards</h3>
-                        <p>Standardized protocols, peer-reviewed methodologies, and verifiable data points for absolute precision.</p>
-                        <span class="status-tag">Evidence-Based</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Calculator Section -->
-        <section id="calculator" class="calculator section fade-in">
-            <div class="container">
-                <h2 class="section-title">Growth Stage Calculator</h2>
-                <div class="calc-card">
-                    <div class="calc-inputs">
-                        <div class="input-group">
-                            <label for="baseline">Baseline Value (mm)</label>
-                            <input type="number" id="baseline" placeholder="0.00" step="0.01">
-                        </div>
-                        <div class="input-group">
-                            <label for="current">Current Value (mm)</label>
-                            <input type="number" id="current" placeholder="0.00" step="0.01">
-                        </div>
-                    </div>
-                    <div class="calc-result">
-                        <span class="result-label">Analysis Result:</span>
-                        <div id="resultOutput" class="result-value">--</div>
-                        <div id="stageOutput" class="result-stage">Enter values to calculate</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Methodology Section -->
-        <section id="methodology" class="methodology section fade-in">
-            <div class="container">
-                <h2 class="section-title">Scientific Methodology</h2>
-                <div class="method-grid">
-                    <div class="method-step">
-                        <div class="step-icon">01</div>
-                        <h3>Data Collection</h3>
-                        <p>Rigorous capture of raw clinical metrics using calibrated instrumentation to ensure zero-point accuracy.</p>
-                    </div>
-                    <div class="method-step">
-                        <div class="step-icon">02</div>
-                        <h3>Analysis</h3>
-                        <p>Applying multi-variant growth algorithms to normalize data against established clinical benchmarks.</p>
-                    </div>
-                    <div class="method-step">
-                        <div class="step-icon">03</div>
-                        <h3>Verification</h3>
-                        <p>Double-blind validation of results to eliminate observer bias and confirm statistical significance.</p>
-                    </div>
-                </div>
-                <div class="method-image">
-                    <img src="https://picsum.photos/seed/laboratory/800/600" alt="Laboratory analysis" loading="lazy">
-                </div>
-            </div>
-        </section>
-
-        <!-- Directory Section -->
-        <section id="directory" class="directory section fade-in">
-            <div class="container">
-                <h2 class="section-title">Partner Clinic Directory</h2>
-                <div class="clinic-grid">
-                    <!-- Cards generated by JS or static for minimalism -->
-                    <div class="clinic-card">
-                        <img src="https://picsum.photos/seed/architecture/800/600?random=1" alt="Clinic">
-                        <div class="clinic-info">
-                            <h3>St. Jude's Medical</h3>
-                            <p>North Wing, Sector 4</p>
-                            <a href="#" class="view-profile">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="clinic-card">
-                        <img src="https://picsum.photos/seed/architecture/800/600?random=2" alt="Clinic">
-                        <div class="clinic-info">
-                            <h3>Precision Vet Care</h3>
-                            <p>Downtown Medical Plaza</p>
-                            <a href="#" class="view-profile">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="clinic-card">
-                        <img src="https://picsum.photos/seed/architecture/800/600?random=3" alt="Clinic">
-                        <div class="clinic-info">
-                            <h3>Apex Clinical Hub</h3>
-                            <p>West Coast Campus</p>
-                            <a href="#" class="view-profile">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="clinic-card">
-                        <img src="https://picsum.photos/seed/architecture/800/600?random=4" alt="Clinic">
-                        <div class="clinic-info">
-                            <h3>Nova Health Institute</h3>
-                            <p>Eastside Bio-Park</p>
-                            <a href="#" class="view-profile">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
+    <section id="problem" class="section">
         <div class="container">
-            <p>&copy; 2026 Clinical Growth Analysis Portal. All rights reserved.</p>
-            <p class="disclaimer">Professional Disclaimer: This tool is for clinical validation support and does not replace professional medical diagnosis.</p>
+            <h2 class="section-title">The Nutritional Gap</h2>
+            <p class="section-subtitle">Many commercial diets leave critical deficiencies that impact long-term canine longevity.</p>
+            <div class="gap-grid">
+                <div class="gap-card">
+                    <div class="icon">🧬</div>
+                    <h3>Micro-Nutrient Void</h3>
+                    <p>Essential trace minerals often missing in processed kibble, leading to cognitive decline.</p>
+                </div>
+                <div class="gap-card">
+                    <div class="icon">🦴</div>
+                    <h3>Calcium Imbalance</h3>
+                    <p>Improper ratios of phosphorus to calcium affecting joint and bone density.</p>
+                </div>
+                <div class="gap-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Immune Lag</h3>
+                    <p>Lack of bio-available proteins required for robust cellular defense mechanisms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">The Clinical Solution</h2>
+            
+            <div class="zigzag">
+                <div class="zigzag-item">
+                    <div class="zigzag-text">
+                        <h3>Real-Time Nutrient Analysis</h3>
+                        <p>Our app scans your current feeding regime and identifies specific voids based on breed, age, and medical history.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="https://picsum.photos/seed/interface/800/600" alt="Nutrient Analysis Interface" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="zigzag-item reverse">
+                    <div class="zigzag-text">
+                        <h3>Custom Supplementation Plans</h3>
+                        <p>Get a precise prescription for dog-milk-based supplements that bridge the gap perfectly without overloading the kidneys.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="https://picsum.photos/seed/analytics/800/600" alt="Custom Plan Interface" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-container">
+                <h3>Explore the Interface</h3>
+                <div class="demo-controls">
+                    <button class="demo-btn active" data-target="analysis">Nutrient Analysis</button>
+                    <button class="demo-btn" data-target="plan">Custom Plan</button>
+                </div>
+                <div class="phone-frame">
+                    <img id="demo-img" src="https://picsum.photos/seed/interface/800/600" alt="App Demo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container narrow">
+            <h2 class="section-title">Clinical FAQ</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">Is this approved by veterinary boards? <span>+</span></button>
+                    <div class="accordion-content">
+                        <p>Yes, our nutritional algorithms are developed in collaboration with board-certified veterinary nutritionists and are based on peer-reviewed clinical data.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">How does the milk-based delivery work? <span>+</span></button>
+                    <div class="accordion-content">
+                        <p>Bio-available lipids in curated dog milk act as a carrier, increasing the absorption rate of fat-soluble vitamins A, D, E, and K compared to dry supplements.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Can this replace standard dog food? <span>+</span></button>
+                    <div class="accordion-content">
+                        <p>No. Our tool is designed to optimize and supplement your existing high-quality diet, not replace it entirely.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="final-cta">
+        <div class="container text-center">
+            <h2>Give Your Dog the Science of Longevity</h2>
+            <p>Join 50,000+ pet parents optimizing their dog's health through clinical nutrition.</p>
+            <div class="hero-ctas justify-center">
+                <a href="#" class="store-btn"><img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="App Store"> App Store</a>
+                <a href="#" class="store-btn"><img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Play Store"> Play Store</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">DogMilk<span>Nutrition</span></div>
+                    <p>Advancing canine health through evidence-based nutritional science.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#problem">The Problem</a></li>
+                        <li><a href="#solution">The Solution</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Dog Milk Nutrition. All rights reserved.
+            </div>
         </div>
     </footer>
 
