@@ -3,123 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapid-Response Medical Cannabis Delivery | Professional Care, Fast</title>
-    <meta name="description" content="Professional, legal, and rapid-response medical cannabis delivery. Establishing trust through clinical excellence and logistics efficiency.">
+    <title>Rapid-Response Medical Cannabis Delivery</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Open+Sans:wght@300;400&family=JetBrains+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="container header-flex">
-            <div class="logo"><strong>MED</strong><span>FAST</span></div>
-            <nav>
-                <a href="#benefits">How it Works</a>
-                <a href="#benefits">Benefits</a>
-                <a href="#testimonials">Patient Reviews</a>
-            </nav>
-            <a href="#calculator" class="btn btn-primary">Order Now</a>
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-placeholder">MED-FAST</div>
+            </div>
+            <div class="timer-container">
+                Estimated Arrival: <span id="delivery-timer">45:00</span>
+            </div>
+            <div class="header-cta">
+                <a href="#services" class="btn-primary">Order Now</a>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="container">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <h1>Clinical Precision. <br>Rapid Response.</h1>
-                    <p>Your healthcare shouldn't wait. We provide professional, legal, and discreet medical cannabis delivery with industry-leading response times.</p>
-                    <a href="#calculator" class="btn btn-large">Start Your Order</a>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Clinical Precision. <br><span class="highlight">Rapid Response.</span></h1>
+                    <p>Professional medical cannabis delivery designed for accessibility, speed, and discretion. We ensure your wellness arrives exactly when you need it.</p>
+                    
+                    <div class="zip-validator">
+                        <input type="text" id="zip-input" placeholder="Enter ZIP Code" maxlength="5">
+                        <button id="zip-btn" class="btn-secondary">Check My Zone</button>
+                        <div id="zip-feedback" class="feedback hidden">✓ Zone Available</div>
+                    </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://picsum.photos/seed/medical/800/600" alt="Medical Cannabis Professional Setup" loading="lazy">
+                    <img src="https://picsum.photos/seed/medical/800/600" alt="Clinical Setting">
                 </div>
             </div>
         </section>
 
-        <section id="benefits" class="bg-neutral">
-            <div class="container">
-                <h2 class="section-title">The Three Pillars of Our Service</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="icon">⚡</div>
-                        <h3>Rapid Speed</h3>
-                        <p>Optimized logistics ensuring your medication arrives in the shortest possible window without compromising safety.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="icon">🛡️</div>
-                        <h3>Medical Reliability</h3>
-                        <p>Strict adherence to medical standards and legal compliance for complete peace of mind.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="icon">🔒</div>
-                        <h3>Absolute Discretion</h3>
-                        <p>Plain, secure packaging and professional delivery agents to protect your privacy.</p>
+        <section id="services" class="service-grid-section">
+            <div class="section-title">
+                <h2>Care Pathways</h2>
+                <p>Tailored delivery options for every patient need.</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card fade-in">
+                    <img src="https://picsum.photos/seed/wellness/800/600" alt="Wellness Care">
+                    <div class="card-content">
+                        <h3>Chronic Patients</h3>
+                        <p>Optimized recurring schedules to ensure you never run out of essential medication.</p>
+                        <a href="#" class="card-link">View Curated Bundle →</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="calculator" class="container">
-            <div class="calc-card">
-                <h2>Check Your Delivery Window</h2>
-                <p>Enter your zip code to see our current real-time ETA.</p>
-                <div class="calc-input-group">
-                    <input type="text" id="zipcode" placeholder="Enter Zip Code (e.g. 90210)">
-                    <button id="calc-btn" class="btn btn-primary">Calculate ETA</button>
-                </div>
-                <div id="calc-result" class="calc-result"></div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="bg-neutral">
-            <div class="container">
-                <h2 class="section-title">Patient Social Proof</h2>
-                <div class="testimonial-slider">
-                    <div class="slider-track">
-                        <div class="slide active">
-                            <img src="https://picsum.photos/seed/patient1/200/200" alt="Patient" class="avatar">
-                            <p>"The fastest delivery I've ever experienced. Professional and completely discreet."</p>
-                            <div class="stars">★★★★★</div>
-                            <strong>- Sarah J.</strong>
-                        </div>
-                        <div class="slide">
-                            <img src="https://picsum.photos/seed/patient2/200/200" alt="Patient" class="avatar">
-                            <p>"Reliable service that understands the urgency of medical needs. Highly recommended."</p>
-                            <div class="stars">★★★★★</div>
-                            <strong>- Mark T.</strong>
-                        </div>
-                        <div class="slide">
-                            <img src="https://picsum.photos/seed/patient3/200/200" alt="Patient" class="avatar">
-                            <p>"Clinical approach to delivery. The packaging is professional and the timing is spot on."</p>
-                            <div class="stars">★★★★★</div>
-                            <strong>- Elena R.</strong>
-                        </div>
-                    </div>
-                    <div class="slider-nav">
-                        <button id="prevSlide">&larr;</button>
-                        <button id="nextSlide">&rarr;</button>
+                <div class="service-card fade-in">
+                    <img src="https://picsum.photos/seed/care/800/600" alt="Mobility Care">
+                    <div class="card-content">
+                        <h3>Mobility-Impaired</h3>
+                        <p>Comprehensive door-to-door assistance and white-glove delivery services.</p>
+                        <a href="#" class="card-link">View Curated Bundle →</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="cta-final" class="container text-center">
-            <div class="cta-box">
-                <h2>Ready for Rapid Response?</h2>
-                <p>Join thousands of patients who trust MEDFAST for their medical needs.</p>
-                <a href="#calculator" class="btn btn-primary btn-large">Order Now</a>
+                <div class="service-card fade-in">
+                    <img src="https://picsum.photos/seed/support/800/600" alt="Caregiver Support">
+                    <div class="card-content">
+                        <h3>Caregivers</h3>
+                        <p>Simplified administrative management and bulk bundle options for multi-patient care.</p>
+                        <a href="#" class="card-link">View Curated Bundle →</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <div class="logo"><strong>MED</strong><span>FAST</span></div>
-                <p>&copy; 2026 MEDFAST Logistics. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="footer-watermark">
+            <img src="https://picsum.photos/seed/clinic/800/600" alt="Clinic Background">
+        </div>
+        <div class="footer-content">
+            <div class="compliance-row">
+                <div class="badge">HIPAA Compliant</div>
+                <div class="badge">FDA Registered</div>
+                <div class="badge">State Certified</div>
             </div>
-            <div class="footer-legal">
-                <p>Medical Cannabis Delivery is subject to local laws and valid prescriptions. We operate under strict clinical guidelines.</p>
+            <div class="referral-row">
+                <a href="#">Physician Referrals</a>
+                <span class="separator">|</span>
+                <a href="#">Medical Certification</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Rapid-Response Medical Cannabis. <a href="#">Privacy Policy</a>
             </div>
         </div>
     </footer>

@@ -1,52 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Delivery Calculator Logic
-    const calcBtn = document.getElementById('calc-btn');
-    const zipInput = document.getElementById('zipcode');
-    const calcResult = document.getElementById('calc-result');
+    // --- Delivery Timer ---
+    const timerDisplay = document.getElementById('delivery-timer');
+    let timeLeft = 45 * 60; // 45 minutes in seconds
 
-    calcBtn.addEventListener('click', () => {
-        const zip = zipInput.value.trim();
-        if (!zip) {
-            calcResult.textContent = "Please enter a valid zip code.";
-            calcResult.style.color = "red";
-            return;
+    function updateTimer() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        if (timeLeft > 0) {
+            timeLeft--;
         }
-
-        calcBtn.disabled = true;
-        calcBtn.textContent = "Calculating...";
-        calcResult.textContent = "Connecting to logistics server...";
-        calcResult.style.color = "var(--primary-accent)";
-
-        // Simulate network delay
-        setTimeout(() => {
-            const eta = Math.floor(Math.random() * (60 - 30 + 1)) + 30;
-            calcResult.innerHTML = `Estimated delivery to your location: <strong>${eta} Minutes</strong>`;
-            calcBtn.disabled = false;
-            calcBtn.textContent = "Calculate ETA";
-        }, 1500);
-    });
-
-    // 2. Testimonial Slider Logic
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.getElementById('prevSlide');
-    const nextBtn = document.getElementById('nextSlide');
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        
-        if (index >= slides.length) currentSlide = 0;
-        else if (index < 0) currentSlide = slides.length - 1;
-        else currentSlide = index;
-
-        slides[currentSlide].classList.add('active');
     }
 
-    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+    setInterval(updateTimer, 1000);
+    updateTimer();
 
-    // Auto-advance every 5 seconds
-    setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
+    // --- Header Scroll Effect ---
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // --- ZIP Validator ---
+    const zipInput = document.getElementById('zip-input');
+    const zipBtn = document.getElementById('zip-btn');
+    const zipFeedback = document.getElementById('zip-feedback');
+
+    zipBtn.addEventListener('click', () => {
+        const zip = zipInput.value;
+        const zipRegex = /^\d{5}$/;
+
+        if (zipRegex.test(zip)) {
+            zipFeedback.classList.remove('hidden');
+            zipInput.style.borderColor = '#28a745';
+        } else {
+            zipFeedback.classList.add('hidden');
+            zipInput.style.borderColor = '#dc3545';
+            alert('Please enter a valid 5-digit ZIP code.');
+        }
+    });
+
+    // --- Intersection Observer for Fade-in ---
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // --- Smooth Scroll for Anchor Links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
